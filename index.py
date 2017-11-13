@@ -8,5 +8,5 @@ def handler(event, context):
         'timestamp': datetime.datetime.utcnow().isoformat()
     }
     return {'statusCode': 200,
-            'body': json.dumps(data),
+            'body': json.dumps(event),
             'headers': {'Content-Type': 'application/json'}}
