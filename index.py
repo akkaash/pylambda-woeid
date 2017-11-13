@@ -4,12 +4,12 @@ import logging
 
 
 def handler(event, context):
-    logging.info(event)
-    logging.info(context)
-    data = {
-        'output': 'Hello World',
-        'timestamp': datetime.datetime.utcnow().isoformat()
-    }
+    queryStringParameters = event['queryStringParameters']
+    print(queryStringParameters)
+    if (queryStringParameters is None):
+        return {
+            'statusCode': 500
+        }
     return {'statusCode': 200,
-            'body': json.dumps(event),
+            'body': json.dumps(queryStringParameters),
             'headers': {'Content-Type': 'application/json'}}
