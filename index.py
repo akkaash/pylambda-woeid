@@ -1,8 +1,11 @@
 import json
 import datetime
+import logging
 
 
 def handler(event, context):
+    logging.info(event)
+    logging.info(context)
     data = {
         'output': 'Hello World',
         'timestamp': datetime.datetime.utcnow().isoformat()
