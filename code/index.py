@@ -4,7 +4,7 @@ API handler module
 import json
 import os
 import logging
-import requests
+from botocore.vendored import requests
 
 
 WORLDWIDE_RESPONSE_BODY = {'woeid': 1}

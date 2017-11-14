@@ -12,7 +12,7 @@ Resources:
   HelloWorld:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
+      Handler: code.index.handler
       Runtime: python3.6
       CodeUri: 's3://<bucket>/example.zip'
       Timeout: 300
