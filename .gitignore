@@ -1,0 +1,4 @@
+.venv/
+.vscode/
+env-vars.json
+bundle.zip

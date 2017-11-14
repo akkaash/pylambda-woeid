@@ -12,8 +12,9 @@ Resources:
   HelloWorld:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
-      Runtime: python2.7
+      Handler: example.index.handler
+      Runtime: python3.6
+      CodeUri: bundle.zip
       Role:
         Fn::ImportValue:
           !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
