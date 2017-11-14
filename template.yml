@@ -14,7 +14,7 @@ Resources:
     Properties:
       Handler: code.index.handler
       Runtime: python3.6
-      CodeUri: 's3://<bucket>/example.zip'
+      CodeUri: 's3://my-code/code.zip'
       Timeout: 300
       Role:
         Fn::ImportValue:
