@@ -34,7 +34,7 @@ This project is made possible by using the following:
 3.
 * To invoke an event use the `events.json`
 ```
-sam local invoke HelloWorld --event events.json
+sam local invoke GetWoeid --event events.json
 ```
 * To start the API server
 ```
