@@ -1,43 +1,43 @@
-Welcome to the AWS CodeStar sample web service
-==============================================
+### Where on Earth IDentifier Python API
 
-This sample code helps get you started with a simple Python web service using
-AWS Lambda and Amazon API Gateway.
 
-What's Here
------------
+This is an API for the getting the WOEID for city. 
 
-This sample includes:
+> What is Where on Earth IDentifier?
+> https://en.wikipedia.org/wiki/WOEID
 
+This project is made possible by using the following:
+* [Serverless Application Model (SAM)](https://github.com/awslabs/serverless-application-model/)
+* [SAM Local](https://github.com/awslabs/aws-sam-local)
+* [YQL](https://developer.yahoo.com/yql/)
+
+#### Code Structure
 * README.md - this file
-* buildspec.yml - this file is used by AWS CodeBuild to package your
-  application for deployment to AWS Lambda
-* index.py - this file contains the sample Python code for the web service
-* template.yml - this file contains the Serverless Application Model (SAM) used
-  by AWS Cloudformation to deploy your application to AWS Lambda and Amazon API
-  Gateway.
+* buildspec.yml - This YAML file is used by AWS CodeBuild to create an artifact
+  that can be used to deploy to AWS Lambda through CloudFormation.
+* code/index.py - This file contains the AWS Lambda code used to interact with YQL to retrieve the WOEID for a city in a  country.
+* events.json -  This file contains a sample of list of events that can be used to do local development using [sam-local](https://github.com/awslabs/aws-sam-local)
+* template.yml - This YAML file is used by AWS CloudFormation to update AWS Lambda
+  and manage any additional AWS resources.
+
+#### API Doc
+`GET /`
+| Parameter  | Required  | Default  |
+|---|---|---|---|---|
+| city  | Yes  | n/a  |
+| countryCode  | No  | 'US'  |
 
 
-What Do I Do Next?
-------------------
-
-If you have checked out a local copy of your repository you can start making changes
-to the sample code.  We suggest making a small change to index.py first, so you can
-see how changes pushed to your project's repository are automatically picked up by your
-project pipeline and deployed to AWS Lambda and Amazon API Gateway. (You can watch the pipeline
-progress on your AWS CodeStar project dashboard.)Once you've seen how that works,
-start developing your own code, and have fun!
-
-Learn more about Serverless Application Model (SAM) and how it works here:
-https://github.com/awslabs/serverless-application-model/blob/master/HOWTO.md
-
-AWS Lambda Developer Guide:
-http://docs.aws.amazon.com/lambda/latest/dg/deploying-lambda-apps.html
-
-Learn more about AWS CodeStar by reading the user guide, and post questions and
-comments about AWS CodeStar on our forum.
-
-AWS CodeStar User Guide:
-http://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
-
-AWS CodeStar Forum: https://forums.aws.amazon.com/forum.jspa?forumID=248
+#### Development
+1. Clone this repository
+2. Install `sam-local` from steps [here](https://github.com/awslabs/aws-sam-local#installation)
+3.
+* To invoke an event use the `events.json`
+```
+sam local invoke HelloWorld --event events.json
+```
+* To start the API server
+```
+sam local start-api
+```
+Then go to http://localhost:3000/?city=Seattle&countryCode=US
