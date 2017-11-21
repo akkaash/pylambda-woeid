@@ -16,9 +16,9 @@ Resources:
       Runtime: python3.6
       CodeUri: ./code
       Timeout: 300
-      Role:
-        Fn::ImportValue:
-          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+      # Role:
+      #   Fn::ImportValue:
+      #     !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
       Events:
         GetEvent:
           Type: Api
